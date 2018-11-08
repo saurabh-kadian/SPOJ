@@ -28,7 +28,6 @@ ll solve(ll index, ll till, bool pickedLast, ll& cap, vector<ll>& val){
 }
 
 ll solveBottomUp(ll s, vector<ll> val){
-    // vector<vector<vector<ll> > > dp(val.size(), vector<vector<ll> >(cap, vector<ll>(2, 0)));
     ll cap = s + 5;
     ll dp[val.size()][cap][2];
     for(int i = 0;i < val.size();++i)
@@ -45,11 +44,6 @@ ll solveBottomUp(ll s, vector<ll> val){
             }
         }
     }
-    // for(int i = 0;i < val.size();++i)
-    //     for(int j = 0;j < cap;++j)
-    //         for(int k = 0;k < 2;++k)
-    //             cout << "(" << i << "," << j << "," << k << ") : " << dp[i][j][k] << endl;
-
     return max(dp[val.size()-1][s][0], dp[val.size()-1][s][1]);
 }
 
@@ -65,7 +59,6 @@ int main(){
         vector<ll> val(n);
         for(ll i = 0;i < n;++i)
             cin >> val[i];
-        // cout << "Scenario #" << q << ": " << solve(0, 0, false, cap, val) << endl;
         cout << "Scenario #" << q << ": " << solveBottomUp(cap, val) << endl;
     }
     return 0;
